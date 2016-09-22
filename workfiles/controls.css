@@ -1,0 +1,116 @@
+﻿@keyframes timeline {
+
+    0% {
+        left: 0%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+#player {
+    width:100%
+}
+
+#controls { 
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    height:0px;
+    overflow:hidden;
+    background: 
+        linear-gradient(rgba(0,0,0,.1), transparent) no-repeat 0% 0%/100% 15%,
+        linear-gradient(transparent, rgba(0,0,0,.05)) no-repeat 0% 100%/100% 15%,
+        #eee;
+    transition: height .2s ease;
+}
+
+#controls.open {
+    height:100px;
+}
+        
+#opener {
+    /*position: relative;
+    top: 20px;*/
+    display:block;
+    width: 100px;
+    height:70px;
+    margin:2vh auto 5px;
+    cursor:pointer;
+    border:none;
+    border-radius: 10px;
+    background: 
+        linear-gradient(30deg, rgba(204,204,204,0) 50%, #ccc 52%, #ccc 63%, rgba(204,204,204,0) 65%) no-repeat 25px 15px/25px 50px,
+        linear-gradient(-30deg, rgba(204,204,204,0) 50%, #ccc 52%, #ccc 63%, rgba(204,204,204,0) 65%) no-repeat 50px 15px/25px 50px;
+}
+
+#opener:hover {
+    background-color:#eee;
+}
+        
+#controls.open + #opener {
+    transform:rotate(180deg);
+}
+        
+#state {
+    width:100px;
+    height:100%;
+    background:transparent;
+    border:none;
+}
+
+#state::after {
+            
+    content:'';
+    display:block;
+    width:40px;
+    height:40px;
+    margin:0 auto;
+    border:3px solid #bbb;
+    border-radius:10px;
+    background:
+        linear-gradient(#bbb,#bbb) no-repeat 30% 50%/15% 50%,
+        linear-gradient(#bbb,#bbb) no-repeat 70% 50%/15% 50%;
+}
+        
+#state.paused::after {
+    background:
+        linear-gradient(30deg,#bbb 45%,#eee 55%) no-repeat 65% 33.33%/50% 25%,
+        linear-gradient(-30deg,#eee 45%,#bbb 55%) no-repeat 65% 66.66%/50% 25%;
+}
+
+#track {
+    position:relative;
+    width:calc(100% - 200px);
+    height:100%;
+    background:linear-gradient(#ccc,#ccc) no-repeat 0% 50%/100% 3px;
+}
+
+#pos, #handle {
+    position:absolute;
+    top:50%;
+    width:30px;
+    height:30px;
+    border-radius:100px;
+    background-color:#fff;
+    box-shadow:0 0 .5em rgba(0,0,0,.2);
+    transform:translate(-50%,-50%);
+    animation:timeline 15s linear 0s infinite;
+}
+        
+#handle {
+    display:none;
+    background-color:#c00;
+    animation:none;
+}
+
+        
+#time {
+    width:100px;
+    color:#aaa;
+    text-align:center;
+    font-family:sans-serif;
+}     

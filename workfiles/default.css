@@ -1,0 +1,242 @@
+﻿*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(#000,#000) no-repeat 0% 0%/100% 50%;
+    background-color: #fff;
+    font-size: 20px;
+}
+
+/* Headline and stage (curtains, floor, spotlight and shadow) */
+h1 {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    margin: 0;
+    padding-top: 18vh;
+    font-size: 5vw;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+    background: 
+        radial-gradient(circle 40vh at 50% 80%, transparent 40%, rgba(0,0,0,.3) 60%, rgba(0,0,0,.7) 100%) no-repeat 0% 100%/100% 100%, 
+        radial-gradient(ellipse, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 40%, transparent 50%) no-repeat 50% 95%/30vh 14%, 
+        linear-gradient(rgba(60,40,0,.8) 0%, rgba(180,120,0,.7) 15%, #5a2d00 100%) repeat-x 0% 100%/1% 30%, 
+        linear-gradient(90deg, rgba(0,0,0,.19) 0%, transparent 50%, rgba(0,0,0,.19) 100%) repeat-x 0% 100%/31px 100%, 
+        linear-gradient(90deg, transparent 0%, rgba(0,0,0,.17) 50%, transparent 100%) repeat-x 0% 100%/47px 100%, 
+        linear-gradient(90deg, transparent 0%, rgba(0,0,0,.29) 50%, transparent 100%) repeat-x 0% 100%/73px 100%, 
+        linear-gradient(#c00, #c00) no-repeat 0% 100%/100% 100%;
+    animation: stage 15s ease 0s infinite;
+}
+
+/* Speech bubble */
+h1::before {
+    content: 'This is CSS on \A a single element!';
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    display: block;
+    width: 100%;
+    height: 50vh;
+    padding-top: 9vh;
+    color: transparent;
+    white-space: pre;
+    text-align: center;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: normal;
+    font-family: sans-serif;
+    font-size: 2.8vh;
+    line-height: 3.5vh;
+    background: 
+        radial-gradient(ellipse, #fff 50%, rgba(255,255,255,0) 52%) no-repeat 50% 0%/3vh 56%, 
+        radial-gradient(ellipse, #fff 50%, transparent 51%) no-repeat 50% 0%/45vh 50%;
+    animation: bubble 15s ease 0s infinite;
+}
+
+/* Green monster thing */
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 9%;
+    left: 50%;
+    display: block;
+    width: 15vh;
+    height: 36%;
+    border-radius: 50% 50% 50% 50% / 50% 50% 10% 10%;
+    background: 
+        radial-gradient(ellipse at 50% 0%,rgba(0,0,0,.7) 40%,transparent 60%) no-repeat 50% 70%/100% 10%, 
+        radial-gradient(rgba(255,255,255,.6) 10%,#000 20%,#000 45%,transparent 55%) no-repeat 64% 45%/10% 10%, 
+        radial-gradient(rgba(255,255,255,.6) 10%,#000 20%,#000 45%,transparent 55%) no-repeat 36% 45%/10% 10%, 
+        radial-gradient(rgba(255,255,255,.6) 20%,rgba(0,0,0,.2) 24%,transparent 40%) no-repeat -5% 30%/75% 70%, 
+        radial-gradient(rgba(255,255,255,.6) 20%,rgba(0,0,0,.2) 24%,transparent 40%) no-repeat 105% 30%/75% 70%;
+    transform: translateX(-50%);
+    animation: monster 15s ease 0s infinite;
+}
+
+
+/* Headline, spotlight and shadow animation */
+@keyframes stage {  
+    
+    /* Dark stage, visible headline */          
+    0%, 10%, 95%, 100% {
+        color: #fff;
+        box-shadow: inset 0 9999px 0 rgba(0,0,0,.8);
+    }
+
+    /* Dark stage, no no headline  */
+    15%, 85% {
+        color: transparent;
+        box-shadow: inset 0 9999px 0 rgba(0,0,0,.8);
+    }
+
+    /* Spotlight on */
+    20%, 80% {
+        box-shadow: inset 0 9999px 0 transparent;
+    }
+
+    /* Normal shadow (on the floor) */
+    21%, 25%, 29%, 33% {
+        background-size: 100% 100%, 30vh 14%, 1% 30%, 31px 100%, 47px 100%, 73px 100%, 100% 100%;
+    }
+
+    /* Large shadow (peak of jump) */
+    23%, 27%, 31% {
+        background-size: 100% 100%, 40vh 14%, 1% 30%, 31px 100%, 47px 100%, 73px 100%, 100% 100%;
+    }
+}
+
+/* Speech bubble animation */
+@keyframes bubble {
+    
+    /* Hidden */        
+    0%, 32%, 60%, 100% {
+        background-position: 0% -200%, 0% -200%;
+        color:transparent;
+    }
+
+    /* Visible */
+    32.01%, 59.99% {
+        background-position: 50% 0%, 50% 0%;
+        color:#000;
+    }
+}
+   
+/* Green monster animation */     
+@keyframes monster {
+    
+    /* In the dark */        
+    0%, 15%, 85%, 100% {
+        background-color: #000;
+        box-shadow: 
+            inset 0 2vh 1vh 0 rgba(255,255,255,.08),
+            inset 0 -8vh 8vh 0 rgba(0,0,0,.5), 
+            inset 0 -25vh 0 0 #000;
+    }
+
+    /* In the spotlight */
+    20%, 80% {
+        background-color: #0c0;
+        box-shadow: 
+            inset 0 2vh 1vh 0 rgba(255,255,255,.5),
+            inset 0 -8vh 8vh 0 rgba(0,0,0,.5), 
+            inset 0 -25vh 0 0 transparent;
+    }
+
+    /* Default position */
+    21%, 25%, 29%, 64%, 67.9%, 69.01%, 70.9%, 72.01% {
+        bottom: 9%;
+        background-position: 50% 70%, 64% 45%, 36% 45%, -5% 30%, 105% 30%;
+        background-size: 100% 10%, 10% 10%, 10% 10%, 75% 70%, 75% 70%;
+    }
+
+    /* Peak of jump */
+    23%, 27%, 31% {
+        bottom: 25%;
+        background-position: 50% 77%, 64% 33%, 36% 33%, -5% -10%, 105% -10%;
+        background-size: 100% 33%, 10% 10%, 10% 10%, 75% 70%, 75% 70%;
+    }
+
+    /* Speaking */
+    33%, 60% {
+        bottom: 9%;
+        background-position: 50% 77%, 64% 25%, 36% 25%, -5% -10%, 105% -10%;
+        background-size: 100% 33%, 10% 10%, 10% 10%, 75% 70%, 75% 70%;
+    }
+
+    /* Eyes blink */
+    68%, 69%, 71%, 72% {
+        background-position: 50% 70%, 64% 45%, 36% 45%, -5% 30%, 105% 30%;
+        background-size: 100% 10%, 0% 0%, 0% 0%, 75% 70%, 75% 70%;
+    }
+}
+
+
+/* Content styles */
+
+article {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+aside, section {
+    width: 100%;
+    margin-top: 3vh;
+    padding: 0 3vh;
+}
+
+aside {
+    padding:3vh 3vh 5vh;
+    background: #eee;
+}
+
+h2 {
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+p, li {
+    margin: 10px auto;
+    line-height: 1.6em;
+    font-family: Georgia, serif;
+    color: #666;
+}
+
+
+@media screen and (min-width: 700px) {
+                        
+    aside {
+        width: 100%;    
+    }
+        
+    section {
+        width: 50%;
+    }
+
+    section:first-of-type {
+        border-right: 1px solid #ddd;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+            
+    article {
+        padding:0 0 5vh;
+    }
+            
+    aside, section {
+        width: 30%;
+    }
+    aside {
+        padding: 0 3vh;
+        border-right:30px solid #fff;
+    }
+}    
