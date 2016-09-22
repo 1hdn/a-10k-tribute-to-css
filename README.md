@@ -1,5 +1,7 @@
 #A 10k tribute to CSS
-This is my entry for the [10k Apart](https://a-k-apart.com/) contest. I used my 10 kilobytes to tell how awesome CSS is. This statement is backed up by applying CSS to a single `<h1>` element that turns it into a cartoon, just to emphasize that additional markup isn’t needed for CSS to shine.
+This is my entry for the [10k Apart](https://a-k-apart.com/) contest. I used my 10 kilobytes to tell how awesome CSS is. This statement is backed up by applying CSS to a single `<h1>` element that turns it into a cartoon, just to emphasize that additional markup isn’t needed for CSS to shine. 
+
+[Go to the page](http://henrik.dahlbom.dk/css-is-awesome/)
 
 ##Progressive enhancements
 * The content is served in lean semantic markup with ARIA attributes to assist screen readers. This will ensure that a browser without CSS rendering capabilities gets the core message. 
